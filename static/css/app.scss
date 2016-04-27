@@ -1,0 +1,73 @@
+@import 'reset';
+@import 'icon';
+@import 'flex';
+
+$plasmaMultiple: 1.4;
+$opacity: .85;
+$textureColor: 50;
+$textColor: white;
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.vertical-center {
+  @include flex-align();
+  @include flex-direction(column);
+  @include flex-justify();
+}
+
+.full-page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+
+.background {
+  background-color: #000;
+
+  .plasma-container {
+    height: #{$plasmaMultiple * 100%};
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: #{-1 * (($plasmaMultiple - 1)/2) * 100%};
+  }
+
+  .plasma {
+    height: 100%;
+  }
+
+  .texture {
+    background-color: rgba($textureColor, $textureColor, $textureColor, $opacity);
+  }
+}
+
+.information {
+  &, a {
+    color: $textColor;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  h1 {
+    font-family: 'Press Start 2P';
+    font-size: 70px;
+    letter-spacing: 15px;
+    line-height: 100px;
+  }
+
+  h2 {
+    font-family: 'Oxygen';
+    font-size: 25px;
+    font-weight: 300;
+  }
+
+  .icon-social-linkedin, .icon-social-github-octocat-solid {
+    font-size: 60px;
+  }
+}
